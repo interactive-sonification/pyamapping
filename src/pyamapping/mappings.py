@@ -55,14 +55,14 @@ def linlin(
 
 
 def clip(
-    value: float, minimum: float = -float("inf"), maximum: float = float("inf")
-) -> float:
+    value: Union[float, np.ndarray], minimum: float = -float("inf"), maximum: float = float("inf")
+) -> Union[float, np.ndarray]:
     """Clips a value to a certain range
 
     Parameters
     ----------
-    value : float
-        Value to clip
+    value : float or np.ndarray
+        Value(s) to clip
     minimum : float, optional
         Minimum output value, by default -float("inf")
     maximum : float, optional
@@ -73,12 +73,15 @@ def clip(
     float
         clipped value
     """
-    if value < minimum:
-        return minimum
-    if value > maximum:
-        return maximum
-    return value
-
+    if type(value) == np.ndarray:
+        return np.maximum(np.minimum(value, maximum), minimum)
+    else:  # ToDo: check if better performance than above numpy code - if not: delete
+        if value < minimum:
+            return minimum
+        if value > maximum:
+            return maximum
+        return value
+    
 
 def midi_to_cps(midi_note: float) -> float:
     """Convert MIDI note to cycles per second
