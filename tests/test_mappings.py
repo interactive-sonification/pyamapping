@@ -38,6 +38,10 @@ def test_clip():
     for x, y in zip([2, 3, 4, 5, 6], [3, 3, 4, 5, 5]):
         assert y == clip(x, 3, 5)
 
+    a1 = np.arange(6)
+    a2 = np.array([2, 2, 2, 3, 4, 4])
+    assert np.array_equal(clip(a1, 2, 4), a2)
+
 
 def test_midi_cps():
     assert midi_to_cps(69) == 440
