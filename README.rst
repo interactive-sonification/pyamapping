@@ -7,9 +7,6 @@
     .. image:: https://readthedocs.org/projects/pyamapping/badge/?version=latest
         :alt: ReadTheDocs
         :target: https://pyamapping.readthedocs.io/en/stable/
-    .. image:: https://img.shields.io/pypi/v/pyamapping.svg
-        :alt: PyPI-Server
-        :target: https://pypi.org/project/pyamapping/
     .. image:: https://img.shields.io/conda/vn/conda-forge/pyamapping.svg
         :alt: Conda-Forge
         :target: https://anaconda.org/conda-forge/pyamapping
@@ -19,6 +16,10 @@
     .. image:: https://img.shields.io/twitter/url/http/shields.io.svg?style=social&label=Twitter
         :alt: Twitter
         :target: https://twitter.com/pyamapping
+
+.. image:: https://img.shields.io/pypi/v/pyamapping.svg
+    :alt: PyPI-Server
+    :target: https://pypi.org/project/pyamapping/
 
 .. image:: https://img.shields.io/coveralls/github/interactive-sonification/pyamapping/main.svg
     :alt: Coveralls
