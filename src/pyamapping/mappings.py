@@ -108,7 +108,7 @@ def linexp(
         return np.minimum(np.maximum(z, y1), y2)
 
 
-def linlog(
+def explin(
     value: Union[float, ArrayLike],
     x1: float,
     x2: float,
@@ -118,7 +118,7 @@ def linlog(
 ) -> Union[float, np.ndarray]:
     """Map value logarithmically so that [x1, x2] is mapped to [y1, y2].
 
-    linlog is implemented in analogy to the SC3 linlog, yet this
+    explin is implemented in analogy to the SC3 explin, yet this
     function extrapolates by default.
     A frequently used invocation is with x1 < x2, i.e. thinking
     of them as a range [x1,x2]
@@ -145,7 +145,8 @@ def linlog(
     float or np.ndarray
         the mapping result
     """
-    z = np.log((value - x1) / (x2 - x1) * (np.exp(y2) - np.exp(y1)) + np.exp(y1))
+    z = np.log(value / x1) / np.log(x2 / x1) * (y2 - y1) + y1
+
     if clip is None:
         return z
     if y1 > y2:
@@ -1173,6 +1174,7 @@ pyamapping_functions = [
     distort,
     ecdf_to_lin,
     ecdf,
+    explin,
     fermi,
     fold,
     gain,
@@ -1184,7 +1186,6 @@ pyamapping_functions = [
     lincurve,
     linexp,
     linlin,
-    linlog,
     linpoly,
     linspace,
     mel_to_hz,
