@@ -267,10 +267,8 @@ def curvelin(
     if abs(curve) < 0.001:
         z = (x - x1) / (x2 - x1) * (y2 - y1) + y1
     else:
-        grow = np.exp(curve)
-        a = (x2 - x1) / (1.0 - grow)
-        b = x1 + a
-        z = np.log((b - x) / a) * (y2 - y1) / curve + y1
+        a = (x2 - x1) / (1.0 - np.exp(curve))
+        z = np.log((x1 + a - x) / a) * (y2 - y1) / curve + y1
 
     if y1 > y2:
         y1, y2 = y2, y1
@@ -1202,7 +1200,7 @@ pyamapping_functions = [
 ]
 
 for fn in pyamapping_functions:
-    register_chain_fn(fn, name)
+    register_chain_fn(fn, None)
 
 
 def chain(input_array: ArrayLike) -> ChainableArray:
