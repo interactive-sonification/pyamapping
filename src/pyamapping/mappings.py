@@ -399,6 +399,7 @@ def bilin(
     ycenter: float = 0,
     ymin: float = -1,
     ymax: float = 1,
+    **kwargs,
 ) -> Union[float, np.ndarray]:
     """Bilin compatibility function. implements sc3 bilin function.
 
@@ -419,7 +420,7 @@ def bilin(
     Union[float, np.ndarray],
         the mapping result
     """
-    return interp_spline(x, [xmin, xcenter, xmax], [ymin, ycenter, ymax])
+    return interp_spline(x, [xmin, xcenter, xmax], [ymin, ycenter, ymax], **kwargs)
 
 
 def clip(
