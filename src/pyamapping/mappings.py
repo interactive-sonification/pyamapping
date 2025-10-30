@@ -206,10 +206,9 @@ def lincurve(
     if abs(curve) < 0.001:
         z = (x - x1) / (x2 - x1) * (y2 - y1) + y1
     else:
-        grow = np.exp(curve)
-        a = (y2 - y1) / (1.0 - grow)
-        b = y1 + a
-        z = b - a * grow ** ((x - x1) / (x2 - x1))
+        z = y1 + (y2 - y1) / (1.0 - np.exp(curve)) * (
+            1 - np.exp((curve * (x - x1) / (x2 - x1)))
+        )
 
     if y1 > y2:
         y1, y2 = y2, y1
