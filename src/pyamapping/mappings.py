@@ -1205,6 +1205,8 @@ for fn in pyamapping_functions:
 
 register_chain_fn(cpsmidi, "cpsmidi")
 register_chain_fn(midicps, "midicps")
+register_chain_fn(ratiomidi, "ratiomidi")
+register_chain_fn(midiratio, "midiratio")
 
 
 def chain(input_array: ArrayLike) -> ChainableArray:
