@@ -1203,6 +1203,9 @@ pyamapping_functions = [
 for fn in pyamapping_functions:
     register_chain_fn(fn, None)
 
+register_chain_fn(cpsmidi, "cpsmidi")
+register_chain_fn(midicps, "midicps")
+
 
 def chain(input_array: ArrayLike) -> ChainableArray:
     """Turn np.ndarray into ChainableArray."""
