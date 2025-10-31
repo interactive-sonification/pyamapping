@@ -1209,6 +1209,8 @@ register_chain_fn(ratiomidi, "ratiomidi")
 register_chain_fn(midiratio, "midiratio")
 register_chain_fn(cpsoct, "cpsoct")
 register_chain_fn(octcps, "octcps")
+register_chain_fn(ampdb, "ampdb")
+register_chain_fn(dbamp, "dbamp")
 
 
 def chain(input_array: ArrayLike) -> ChainableArray:
