@@ -578,28 +578,28 @@ def hz_to_mel(hz):
     Parameters
     ----------
     hz : number of array
-        value in Hz, can be an array
+        frequencies in Hz, can be an array
 
     Returns
     -------
     _ : number of array
-        value in Mels, same type as the input.
+        mel scale value, same type as the input.
     """
     return 2595 * np.log10(1 + hz / 700.0)
 
 
 def mel_to_hz(mel):
-    """Convert a value in Hertz to Mels.
+    """Convert a frequency in Hz to mel using .
 
     Parameters
     ----------
-    hz : number of array
-        value in Hz, can be an array
+    mel : number of array
+        melody value
 
     Returns
     -------
     _ : number of array
-        value in Mels, same type as the input.
+        cps in Hz, same type as the input.
     """
     return 700 * (10 ** (mel / 2595.0) - 1)
 
