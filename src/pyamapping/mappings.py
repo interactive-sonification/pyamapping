@@ -572,36 +572,61 @@ def octave_to_cps(octave: float) -> float:
 octcps = octave_to_cps
 
 
-def hz_to_mel(hz):
-    """Convert a value in Hertz to Mels.
+def hz_to_mel(hz, htk=False):
+    """Convert frequencies [Hz] to mel scale.
 
     Parameters
     ----------
     hz : number of array
         frequencies in Hz, can be an array
 
+    htk: bool
+        flag: if True use O'Shaughnessy (1987) formula
+              if False use Slaney's matlab formula
+
     Returns
     -------
     _ : number of array
         mel scale value, same type as the input.
     """
-    return 2595 * np.log10(1 + hz / 700.0)
+    if htk:
+        return 2595 * np.log10(1 + hz / 700.0)
+    else:
+        hz = np.asanyarray(hz)  # supports both scalars and arrays
+        mel = np.where(
+            hz < 1000,  # point between linear and log scale
+            3.0 * hz / 200,  # linear law
+            15 + 27 * np.log(hz / 1000) / np.log(6.4),  # log law
+        )
+        return mel if mel.ndim > 0 else float(mel)
 
 
-def mel_to_hz(mel):
-    """Convert a frequency in Hz to mel using .
+def mel_to_hz(mel, htk=False):
+    """Convert mel from mel scale to frequency [Hz].
 
     Parameters
     ----------
     mel : number of array
         melody value
+    htk: bool
+        flag: if True use O'Shaughnessy (1987) formula
+              if False use Slaney's matlab formula
 
     Returns
     -------
     _ : number of array
         cps in Hz, same type as the input.
     """
-    return 700 * (10 ** (mel / 2595.0) - 1)
+    if htk:
+        return 700 * (10 ** (mel / 2595.0) - 1)
+    else:
+        mel = np.asanyarray(mel)
+        hz = np.where(
+            mel < 15,  # border between lin/exp regime
+            (200.0 / 3) * mel,  # linear regime
+            1000 * (6.4 ** ((mel - 15) / 27)),
+        )  # exp. regime
+        return hz if hz.ndim > 0 else float(hz)
 
 
 def db_to_amp(decibels: float) -> float:
