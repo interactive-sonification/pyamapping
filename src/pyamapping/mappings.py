@@ -792,7 +792,7 @@ def wrap(
 ) -> Union[float, np.ndarray]:
     """Wrap array around target range [y1, y2].
 
-    This implements the mapping y1 + x % (y2 - y1).
+    This implements the mapping y1 + np.mod(x - y1, y2 - y1).
     The order of y1, y2 is irrelevant.
 
     Parameters
@@ -805,7 +805,7 @@ def wrap(
     -------
         Union[float, np.ndarray]: wraped array
     """
-    return y1 + x % (y2 - y1)
+    return y1 + np.mod(x - y1, y2 - y1)
 
 
 def fold(
