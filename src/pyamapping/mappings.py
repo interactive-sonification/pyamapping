@@ -695,15 +695,18 @@ def softclip(
     Parameters
     ----------
         x (Union[float, np.typing.ArrayLike]): input value or array
-        threshold (float, optional): defaults to 1.0.
 
     Returns
     -------
         Union[float, np.ndarray]: softclip distorted value / array
     """
-    condition = np.abs(x) > 0.5
-    return (np.abs(x) - 0.25) / x * condition + (1 - condition) * x
-    # return (np.abs(x) - 0.25)/x if np.abs(x)<0.5 else x
+    x = np.asarray(x)  # ensure numpy array for elementwise operations
+    y = np.where(
+        np.abs(x) > 0.5,  # condition
+        (np.abs(x) - 0.25) / x,  # if condition
+        x,  # else
+    )
+    return y if y.ndim > 0 else float(y)
 
 
 def scurve(
