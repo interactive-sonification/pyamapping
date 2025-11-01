@@ -684,9 +684,7 @@ def distort(
     return x / (threshold + np.abs(x))
 
 
-def softclip(
-    x: Union[float, ArrayLike], threshold: float = 1.0
-) -> Union[float, np.ndarray]:
+def softclip(x: Union[float, ArrayLike]) -> Union[float, np.ndarray]:
     """Apply softclip distortion to x.
 
     This yields a perfectly linear region within [-0.5, 0.5],
@@ -700,26 +698,22 @@ def softclip(
     -------
         Union[float, np.ndarray]: softclip distorted value / array
     """
-    x = np.asarray(x)  # ensure numpy array for elementwise operations
-    y = np.where(
-        np.abs(x) > 0.5,  # condition
-        (np.abs(x) - 0.25) / x,  # if condition
-        x,  # else
-    )
+    x = np.asarray(x, dtype=float)  # ensure numpy array for elementwise operations
+    y = np.empty_like(x)
+    mask = np.abs(x) <= 0.5
+    y[mask] = x[mask]
+    y[~mask] = (np.abs(x[~mask]) - 0.25) / x[~mask]
     return y if y.ndim > 0 else float(y)
 
 
-def scurve(
-    x: Union[float, ArrayLike], threshold: float = 1.0
-) -> Union[float, np.ndarray]:
+def scurve(x: Union[float, ArrayLike]) -> Union[float, np.ndarray]:
     """Map value onto an S-curve bound to [0,1].
 
-    Implements v * v * (3-(2*v)) mit v = x.clip(0,1)
+    Implements v * v * (3-(2*v)) mit v = x.clip(0, 1)
 
     Parameters
     ----------
         x (Union[float, np.typing.ArrayLike]): input value or array
-        threshold (float, optional): defaults to 1.0.
 
     Returns
     -------
