@@ -728,10 +728,10 @@ def lcurve(
 ) -> Union[float, np.ndarray]:
     """Map value or array onto an L-curve.
 
-    Implements (1 + m * exp(-x/tau) + 1) / (1 + n * exp(-x/tau))
+    Implements (1 + m * exp(-x/tau)) / (1 + n * exp(-x/tau))
     - equal to fermi function with default parameters
     - note that different to the sc3 implementation, tau is inside
-    the exp function (unclear tau placement in sc3...)
+    the exp function (...unclear tau placement in sc3...)
 
     Parameters
     ----------
