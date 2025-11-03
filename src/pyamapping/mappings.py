@@ -863,17 +863,17 @@ def norm_peak(x: np.ndarray, peak=1.0):
     return (x / peak_of_x) * peak if peak_of_x != 0 else x
 
 
-def norm_rms(x: Union[float, ArrayLike], rms=1.0):
+def norm_rms(x: np.ndarray, rms=1.0):
     """Normalize array so that its RMS value equals `rms`.
 
     Parameters
     ----------
-        x (Union[float, np.typing.ArrayLike]): input value or array
+        x (np.ndarray): input array
         rms (float): target rms of array
 
     Returns
     -------
-        Union[float, np.ndarray]: rms normalized (scaled) array
+        np.ndarray: rms normalized (scaled) array
     """
     rms_of_x = np.sqrt(np.mean(x**2))
     return (x / rms_of_x) * rms if rms_of_x != 0 else x
