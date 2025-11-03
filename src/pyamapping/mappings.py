@@ -847,17 +847,17 @@ def remove_dc(
     return x - np.mean(x)
 
 
-def norm_peak(x: Union[float, ArrayLike], peak=1.0):
-    """Normalize array so that max(abs(x)) = peak.
+def norm_peak(x: np.ndarray, peak=1.0):
+    """Normalize by scaling array so that max(abs(x)) = peak.
 
     Parameters
     ----------
-        x (Union[float, np.typing.ArrayLike]): input value or array
+        x (np.ndarray]): input array
         peak (float): target peak
 
     Returns
     -------
-        Union[float, np.ndarray]: normalized (scaled) array
+        np.ndarray: normalized (scaled) array
     """
     peak_of_x = np.max(np.abs(x))
     return (x / peak_of_x) * peak if peak_of_x != 0 else x
