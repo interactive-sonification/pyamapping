@@ -767,9 +767,7 @@ def fermi(
     return 1.0 / (1 + np.exp(-(x - mu) / tau))
 
 
-def normalize(
-    x: Union[float, ArrayLike], y1: float = -1.0, y2: float = 1.0
-) -> Union[float, np.ndarray]:
+def normalize(x: np.ndarray, y1: float = -1.0, y2: float = 1.0) -> np.ndarray:
     """Normalize array to target range [y1, y2].
 
     Linear mapping [min(x), max(x)] to [y1, y2]. Use y1 > y2 to change polarity.
