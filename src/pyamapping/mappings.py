@@ -831,18 +831,16 @@ def fold(
     return np.abs((x - y2) % (2 * L) - L) + y1
 
 
-def remove_dc(
-    x: Union[float, ArrayLike],
-) -> Union[float, np.ndarray]:
+def remove_dc(x: np.darray) -> np.ndarray:
     """Remove DC bias.
 
     Parameters
     ----------
-        x (Union[float, np.typing.ArrayLike]): input value or array
+        x (np.ndarray): input array
 
     Returns
     -------
-        Union[float, np.ndarray]: normalized / scaled array
+        np.ndarray: mean-free array
     """
     return x - np.mean(x)
 
