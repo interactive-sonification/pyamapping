@@ -752,12 +752,13 @@ def fermi(
 ) -> Union[float, np.ndarray]:
     """Apply fermi function to value or array.
 
-    Implements 1 / (1 + exp(-x/tau))
+    Implements 1 / (1 + exp(-(x-mu)/tau))
 
     Parameters
     ----------
         x (Union[float, np.typing.ArrayLike]): input value or array
         tau (float, optional): scale constant, defaults to 1.0.
+        mu (float, optional): shift, defaults to 0.0
 
     Returns
     -------
