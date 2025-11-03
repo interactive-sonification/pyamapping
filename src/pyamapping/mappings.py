@@ -877,22 +877,20 @@ def norm_rms(x: np.ndarray, rms=1.0):
     return (x / rms_of_x) * rms if rms_of_x != 0 else x
 
 
-def gain(
-    x: Union[float, ArrayLike], db: Optional[float] = None, amp: Optional[float] = None
-):
+def gain(x: np.ndarray, db: Optional[float] = None, amp: Optional[float] = None):
     """Apply gain, either as dB (SPL) or scalar factor amp.
 
     No operation done if neither argument is given, it applies both if both are given.
 
     Parameters
     ----------
-        x (Union[float, np.typing.ArrayLike]): input value or array
+        x (np.ndarray): input array
         db (None or float): dB SPL = gain 10**(db/20), e.g. -6 dB ~ factor 0.5
         amp (None or float): gain factor
 
     Returns
     -------
-        Union[float, np.ndarray]: scaled (amplified / attenuated) array
+        np.ndarray: scaled (amplified / attenuated) array
     """
     if db:
         sig = x * dbamp(db)
