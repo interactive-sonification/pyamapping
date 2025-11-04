@@ -901,35 +901,12 @@ def gain(x: np.ndarray, db: Optional[float] = None, amp: Optional[float] = None)
     return sig
 
 
-def linspace(
-    x: Union[float, int, ArrayLike], x1: float, x2: float, endpoint: bool = True
-) -> np.ndarray:
-    """Create np.linspace from x1 to x2 in int(x) resp len(x) steps.
-
-    Parameters
-    ----------
-        x (Union[float, int, ArrayLike]): length or array of which only shape is used
-        x1 (float): target interval one side
-        x2 (float): target interval other side
-        endpoint (bool): forwarded to np.linspace
-
-    Returns
-    -------
-        Union[float, np.ndarray]: array of length len(x)
-            (resp. int(x) if x is float) of numbers between x1 and x2
-    """
-    if isinstance(x, np.ndarray):
-        return np.linspace(x1, x2, x.shape[0], endpoint=endpoint)
-    else:
-        return np.linspace(x1, x2, int(abs(x)), endpoint=endpoint)
-
-
 def lin_to_ecdf(
     x: Union[float, ArrayLike], ref_data: np.ndarray, sorted: bool = False
 ) -> Union[float, np.ndarray]:
     """Map data using empiric cumulative distribution function as mapping.
 
-    This meann feature values are mapped to quantiles.
+    This means feature values are mapped to quantiles.
     if sorted==True: ref_data is regarded as sorted, speeding repeated invocations.
 
     Parameters
@@ -1202,7 +1179,6 @@ pyamapping_functions = [
     linexp,
     linlin,
     linpoly,
-    linspace,
     mel_to_hz,
     midi_to_cps,
     midi_to_ratio,
