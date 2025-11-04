@@ -831,7 +831,7 @@ def fold(
     return np.abs((x - y2) % (2 * L) - L) + y1
 
 
-def remove_dc(x: np.darray) -> np.ndarray:
+def remove_dc(x: np.ndarray) -> np.ndarray:
     """Remove DC bias.
 
     Parameters
