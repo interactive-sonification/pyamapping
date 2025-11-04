@@ -922,7 +922,7 @@ def lin_to_ecdf(
     """
     if sorted:
         return interp(
-            x, ref_data, np.arange(1, len(ref_data) + 1) / float(len(ref_data))
+            x, ref_data, np.arange(1, len(ref_data) + 1) / float(len(ref_data), left=0)
         )
     else:
         return interp(x, *ecdf(ref_data))

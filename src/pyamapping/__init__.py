@@ -45,7 +45,6 @@ from pyamapping.mappings import (  # some synonyms; the class and helper functio
     linexp,
     linlin,
     linpoly,
-    linspace,
     mel_to_hz,
     midi_to_cps,
     midi_to_ratio,
