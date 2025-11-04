@@ -84,7 +84,6 @@ __all__ = [
     "linexp",
     "linlin",
     "linpoly",
-    "linspace",
     "midi_to_cps",
     "midi_to_ratio",
     "norm_peak",
