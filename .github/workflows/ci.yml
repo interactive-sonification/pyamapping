@@ -61,7 +61,7 @@ jobs:
       matrix:
         python:
         - "3.7"  # oldest Python supported by PSF
-        - "3.11"  # newest Python that is stable
+        - "3.13"  # newest Python that is stable
         platform:
         - ubuntu-latest
         - macos-latest
@@ -110,7 +110,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
-        with: {python-version: "3.11"}
+        with: {python-version: "3.12"}
       - name: Retrieve pre-built distribution files
         uses: actions/download-artifact@v3
         with: {name: python-distribution-files, path: dist/}
