@@ -1,4 +1,5 @@
 import numpy as np
+from pyamapping.mappings import bilin, curvelin, explin, lincurve, midi_to_ratio, ratio_to_midi
 import pytest
 
 from pyamapping import (
@@ -50,6 +51,11 @@ def test_midi_cps():
         assert x == cps_to_midi(midi_to_cps(x))
 
 
+def test_midi_ratio():
+    pytest.approx(midi_to_ratio(7), 1.4983070768766815)
+    pytest.approx(ratio_to_midi(2), 12.0)
+
+
 def test_db_amp():
     for x in range(128):
         assert x == pytest.approx(amp_to_db(db_to_amp(x)))
@@ -60,3 +66,30 @@ def test_hz_mel():
     pytest.approx(mel_to_hz(549.64), 440)
     for x in range(128):
         assert x == pytest.approx(hz_to_mel(mel_to_hz(x)))
+
+
+def test_explin():
+    f = 220 * 2**(-5/12)
+    pytest.approx(explin(f, 220, 440, 0, 12), -5.0)
+    pytest.approx(explin(0.01, 0.001, 1.0, -30, 0, "max"), -20.0)
+
+
+def test_lincurve():
+    pytest.approx(
+        lincurve(np.array([0.0, 0.1, 0.4, 0.7, 1.0]), 0, 1, 0, 0.4),
+        np.array([0., 0.08385643, 0.25474431, 0.34852956, 0.4]) 
+    )
+
+
+def test_curvelin():
+    pytest.approx(
+        curvelin(np.array([0, 0.1, 0.3, 0.5]), 0, 0.5, 0, 10),
+        np.array([ 0.,  0.94934752,  3.65734932, 10.])
+    )
+
+
+def test_bilin():
+    pytest.approx(
+        bilin(np.array([0, 20, 40, 60, 80, 100]), 60, 20, 80, 0, -20, 60),
+        np.array([-30., -20., -10.,   0.,  60., 120.])
+    )
