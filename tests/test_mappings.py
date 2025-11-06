@@ -17,14 +17,23 @@ from pyamapping.mappings import (
     curvelin,
     distort,
     explin,
+    fermi,
+    fold,
+    gain,
     lcurve,
     lincurve,
     linexp,
+    linpoly,
     midi_to_ratio,
+    norm_peak,
+    norm_rms,
+    normalize,
     octave_to_cps,
     ratio_to_midi,
+    remove_dc,
     scurve,
     softclip,
+    wrap,
 )
 
 
@@ -140,8 +149,71 @@ def test_scurve():
     )
 
 
+def test_fermi():
+    pytest.approx(
+        fermi(np.array([-1, -0.5, 0, 0.5, 1])),
+        np.array([0.26894142, 0.37754067, 0.5, 0.62245933, 0.73105858]),
+    )
+
+
 def test_lcurve():
     pytest.approx(
         lcurve(np.array([-1, -0.5, 0, 0.5, 1])),
         np.array([0.26894142, 0.37754067, 0.5, 0.62245933, 0.73105858]),
+    )
+
+
+def test_wrap():
+    pytest.approx(
+        wrap(np.arange(-3, 5), 0, 3),
+        np.array([0, 1, 2, 0, 1, 2, 0, 1]),
+    )
+
+
+def test_fold():
+    pytest.approx(
+        fold(np.arange(0, 13), 0, 4),
+        np.array([0, 1, 2, 3, 4, 3, 2, 1, 0, 1, 2, 3, 4]),
+    )
+
+
+def test_linpoly():
+    pytest.approx(
+        linpoly(np.arange(-2, 3), 2.5, 100, 500, curve=1),
+        np.array([172.0, 268.0, 300.0, 332.0, 428.0]),
+    )
+
+
+def test_normalize():
+    pytest.approx(
+        np.sort(normalize(np.random.rand(10)))[[0, -1]],
+        np.array([-1, 1]),
+    )
+
+
+def test_norm_peak():
+    pytest.approx(
+        np.max(norm_peak(np.random.rand(10), 5)),
+        5,
+    )
+
+
+def test_norm_rms():
+    pytest.approx(
+        norm_rms(np.array([1, 0, 0, -1]), 1),
+        np.array([1.41421356, 0.0, 0.0, -1.41421356]),
+    )
+
+
+def test_remove_dc():
+    pytest.approx(
+        remove_dc(np.array([1, 2, 3, 4])),
+        np.array([-1.5, -0.5, 0.5, 1.5]),
+    )
+
+
+def test_gain():
+    pytest.approx(
+        gain(np.array([1, 2, 3, 4]), amp=2),
+        np.array([2, 4, 6, 8]),
     )
