@@ -98,13 +98,21 @@ def test_hz_mel_hz():
 
 def test_linexp():
     pytest.approx(linexp(5, 1, 8, 2, 256), 32.0)
+    pytest.approx(linexp(5, 1, 8, 256, 2, "minmax"), 16.0)
     pytest.approx(linexp(7, 0, 5, 100, 300, "max"), 300)
+    pytest.approx(linexp(1, 2, 5, 100, 300, "min"), 100)
+    pytest.approx(linexp(1, 2, 5, 100, 300, "minmax"), 100)
+    pytest.approx(linexp(6, 2, 5, 100, 300, "minmax"), 300)
 
 
 def test_explin():
     f = 220 * 2 ** (-5 / 12)
     pytest.approx(explin(f, 220, 440, 0, 12), -5.0)
     pytest.approx(explin(0.01, 0.001, 1.0, -30, 0, "max"), -20.0)
+    pytest.approx(explin(0.01, 0.001, 1.0, 0, -30, "minmax"), -10.0)
+    pytest.approx(explin(2, 0.001, 1.0, 0, 1, "max"), 1)
+    pytest.approx(explin(0.0001, 0.001, 1.0, 0, 1, "min"), 0)
+    pytest.approx(explin(0.0001, 0.001, 1.0, 0, 1, "minmax"), 0)
 
 
 def test_lincurve():
