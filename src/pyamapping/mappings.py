@@ -792,7 +792,7 @@ def wrap(
     """Wrap array around target range [y1, y2].
 
     This implements the mapping y1 + np.mod(x - y1, y2 - y1).
-    The order of y1, y2 is irrelevant.
+    The order of y1, y2 is irrelevant with input values strictly inside the range.
 
     Parameters
     ----------
