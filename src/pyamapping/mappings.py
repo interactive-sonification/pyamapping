@@ -892,11 +892,11 @@ def gain(x: np.ndarray, db: Optional[float] = None, amp: Optional[float] = None)
     -------
         np.ndarray: scaled (amplified / attenuated) array
     """
-    if db:
+    if db is not None:
         sig = x * dbamp(db)
     else:
         sig = x.copy()
-    if amp:
+    if amp is not None:
         sig *= amp
     return sig
 
@@ -922,7 +922,7 @@ def lin_to_ecdf(
     """
     if sorted:
         return interp(
-            x, ref_data, np.arange(1, len(ref_data) + 1) / float(len(ref_data), left=0)
+            x, ref_data, np.arange(1, len(ref_data) + 1) / float(len(ref_data)), left=0
         )
     else:
         return interp(x, *ecdf(ref_data))
@@ -985,3 +985,6 @@ def ecdf(
     xs = np.sort(x)
     ys = np.arange(1, len(xs) + 1) / float(len(xs))
     return xs[selection], ys[selection]
+
+
+
