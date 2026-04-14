@@ -1,0 +1,498 @@
+SF:pyamapping/__init__.py
+DA:1,1
+DA:3,1
+DA:9,1
+DA:11,1
+DA:12,1
+DA:16,1
+DA:18,1
+DA:20,1
+DA:22,1
+DA:23,1
+DA:72,1
+DA:120,1
+DA:122,1
+DA:123,1
+DA:125,1
+DA:126,0
+DA:128,1
+DA:130,1
+DA:132,1
+DA:133,0
+DA:135,1
+DA:138,0
+DA:140,0
+DA:141,0
+DA:143,0
+DA:145,1
+DA:146,1
+DA:151,1
+DA:154,1
+DA:157,1
+DA:158,0
+DA:160,1
+DA:161,1
+DA:166,1
+DA:169,1
+DA:171,1
+DA:172,1
+DA:173,1
+DA:174,1
+DA:175,1
+DA:176,1
+DA:178,0
+DA:179,1
+DA:183,1
+DA:184,1
+DA:185,1
+DA:188,1
+DA:189,1
+DA:191,1
+DA:229,1
+DA:230,1
+DA:232,1
+DA:233,1
+DA:234,1
+DA:235,1
+DA:236,1
+DA:237,1
+DA:238,1
+DA:239,1
+LF:59
+LH:51
+FN:120,151,register_numpy_ufunc
+FNDA:1,register_numpy_ufunc
+FN:125,126,register_numpy_ufunc.method1
+FNDA:0,register_numpy_ufunc.method1
+FN:154,166,register_chain_fn
+FNDA:1,register_chain_fn
+FN:157,158,register_chain_fn.method
+FNDA:0,register_chain_fn.method
+FN:169,179,_list_numpy_ufuncs
+FNDA:1,_list_numpy_ufuncs
+FNF:5
+FNH:3
+BRDA:123,0,jump to line 125,1
+BRDA:123,0,jump to line 130,1
+BRDA:130,0,jump to line 132,1
+BRDA:130,0,jump to line 138,0
+BRDA:172,0,jump to line 173,1
+BRDA:172,0,jump to line 179,1
+BRDA:174,0,jump to line 172,1
+BRDA:174,0,jump to line 175,1
+BRDA:175,0,jump to line 176,1
+BRDA:175,0,jump to line 178,0
+BRDA:183,0,jump to line 184,1
+BRDA:183,0,jump to line 188,1
+BRDA:229,0,jump to line 230,1
+BRDA:229,0,jump to line 232,1
+BRF:14
+BRH:12
+end_of_record
+SF:pyamapping/chainable_array.py
+DA:3,1
+DA:5,1
+DA:6,1
+DA:8,1
+DA:11,1
+DA:14,1
+DA:16,1
+DA:17,1
+DA:19,1
+DA:21,1
+DA:22,0
+DA:24,1
+DA:26,1
+DA:28,1
+DA:30,0
+DA:32,0
+DA:34,1
+DA:36,0
+DA:38,0
+DA:39,0
+DA:40,0
+DA:41,0
+DA:42,0
+DA:44,0
+DA:45,0
+DA:46,0
+DA:48,0
+DA:50,0
+DA:52,1
+DA:66,1
+DA:68,1
+DA:88,1
+DA:89,1
+DA:90,1
+DA:91,1
+DA:96,1
+DA:98,1
+DA:99,1
+DA:100,1
+DA:105,1
+DA:108,1
+LF:41
+LH:27
+FN:14,17,ChainableArray.__new__
+FNDA:1,ChainableArray.__new__
+FN:19,22,ChainableArray.__array_finalize__
+FNDA:1,ChainableArray.__array_finalize__
+FN:24,26,ChainableArray.to_array
+FNDA:1,ChainableArray.to_array
+FN:28,32,ChainableArray.to_asig
+FNDA:0,ChainableArray.to_asig
+FN:34,50,ChainableArray.plot
+FNDA:0,ChainableArray.plot
+FN:52,66,ChainableArray.mapvec
+FNDA:1,ChainableArray.mapvec
+FN:68,94,ChainableArray.map
+FNDA:1,ChainableArray.map
+FN:96,102,ChainableArray.__getattr__
+FNDA:1,ChainableArray.__getattr__
+FN:105,108,chain
+FNDA:1,chain
+FNF:9
+FNH:7
+BRDA:21,0,jump to line 22,0
+BRDA:21,0,return from function '__array_finalize__',1
+BRDA:39,0,jump to line 40,-
+BRDA:39,0,jump to line 44,-
+BRDA:45,0,jump to line 46,-
+BRDA:45,0,jump to line 48,-
+BRDA:98,0,jump to line 99,1
+BRDA:98,0,jump to line 100,1
+BRF:8
+BRH:3
+end_of_record
+SF:pyamapping/mappings.py
+DA:3,1
+DA:5,1
+DA:6,1
+DA:8,1
+DA:11,1
+DA:48,1
+DA:49,1
+DA:50,1
+DA:51,1
+DA:52,1
+DA:53,1
+DA:54,1
+DA:55,1
+DA:56,1
+DA:58,1
+DA:61,1
+DA:98,1
+DA:99,1
+DA:100,1
+DA:101,1
+DA:102,1
+DA:103,1
+DA:104,1
+DA:105,1
+DA:106,1
+DA:108,1
+DA:111,1
+DA:148,1
+DA:150,1
+DA:151,1
+DA:152,1
+DA:153,1
+DA:154,1
+DA:155,1
+DA:156,1
+DA:157,1
+DA:159,1
+DA:162,1
+DA:206,1
+DA:207,1
+DA:209,1
+DA:213,1
+DA:214,1
+DA:215,1
+DA:216,1
+DA:217,1
+DA:218,1
+DA:219,1
+DA:221,1
+DA:222,1
+DA:225,1
+DA:267,1
+DA:268,1
+DA:270,1
+DA:271,1
+DA:273,1
+DA:274,1
+DA:275,1
+DA:276,1
+DA:277,1
+DA:278,1
+DA:279,1
+DA:281,1
+DA:282,1
+DA:285,1
+DA:315,1
+DA:316,1
+DA:317,1
+DA:318,1
+DA:319,1
+DA:320,0
+DA:321,1
+DA:322,1
+DA:323,1
+DA:324,1
+DA:326,1
+DA:329,1
+DA:358,1
+DA:360,1
+DA:361,1
+DA:364,1
+DA:391,1
+DA:394,1
+DA:423,1
+DA:426,1
+DA:447,1
+DA:448,1
+DA:450,1
+DA:451,1
+DA:452,1
+DA:453,1
+DA:454,1
+DA:457,1
+DA:470,1
+DA:473,1
+DA:476,1
+DA:489,1
+DA:492,1
+DA:495,1
+DA:508,1
+DA:511,1
+DA:514,1
+DA:527,1
+DA:530,1
+DA:533,1
+DA:548,1
+DA:551,1
+DA:554,1
+DA:569,1
+DA:572,1
+DA:575,1
+DA:592,1
+DA:593,1
+DA:595,1
+DA:596,1
+DA:601,1
+DA:604,1
+DA:620,1
+DA:621,1
+DA:623,1
+DA:624,1
+DA:629,1
+DA:632,1
+DA:645,1
+DA:648,1
+DA:651,1
+DA:664,1
+DA:667,1
+DA:670,1
+DA:684,1
+DA:687,1
+DA:701,1
+DA:702,1
+DA:703,1
+DA:704,1
+DA:705,1
+DA:706,1
+DA:709,1
+DA:722,1
+DA:723,1
+DA:726,1
+DA:747,1
+DA:750,1
+DA:767,1
+DA:770,1
+DA:785,1
+DA:786,1
+DA:789,1
+DA:807,1
+DA:810,1
+DA:828,1
+DA:829,1
+DA:830,1
+DA:831,1
+DA:834,1
+DA:845,1
+DA:848,1
+DA:860,1
+DA:861,1
+DA:864,1
+DA:876,1
+DA:877,1
+DA:880,1
+DA:895,1
+DA:896,1
+DA:898,1
+DA:899,1
+DA:900,1
+DA:901,1
+DA:904,1
+DA:923,1
+DA:924,1
+DA:928,1
+DA:931,1
+DA:951,1
+DA:952,1
+DA:956,1
+DA:957,1
+DA:960,1
+DA:985,1
+DA:986,1
+DA:987,1
+LF:182
+LH:181
+FN:11,58,linlin
+FNDA:1,linlin
+FN:61,108,linexp
+FNDA:1,linexp
+FN:111,159,explin
+FNDA:1,explin
+FN:162,222,lincurve
+FNDA:1,lincurve
+FN:225,282,curvelin
+FNDA:1,curvelin
+FN:285,326,linpoly
+FNDA:1,linpoly
+FN:329,361,interp_spline
+FNDA:1,interp_spline
+FN:364,391,interp
+FNDA:1,interp
+FN:394,423,bilin
+FNDA:1,bilin
+FN:426,454,clip
+FNDA:1,clip
+FN:457,470,midi_to_cps
+FNDA:1,midi_to_cps
+FN:476,489,cps_to_midi
+FNDA:1,cps_to_midi
+FN:495,508,midi_to_ratio
+FNDA:1,midi_to_ratio
+FN:514,527,ratio_to_midi
+FNDA:1,ratio_to_midi
+FN:533,548,cps_to_octave
+FNDA:1,cps_to_octave
+FN:554,569,octave_to_cps
+FNDA:1,octave_to_cps
+FN:575,601,hz_to_mel
+FNDA:1,hz_to_mel
+FN:604,629,mel_to_hz
+FNDA:1,mel_to_hz
+FN:632,645,db_to_amp
+FNDA:1,db_to_amp
+FN:651,664,amp_to_db
+FNDA:1,amp_to_db
+FN:670,684,distort
+FNDA:1,distort
+FN:687,706,softclip
+FNDA:1,softclip
+FN:709,723,scurve
+FNDA:1,scurve
+FN:726,747,lcurve
+FNDA:1,lcurve
+FN:750,767,fermi
+FNDA:1,fermi
+FN:770,786,normalize
+FNDA:1,normalize
+FN:789,807,wrap
+FNDA:1,wrap
+FN:810,831,fold
+FNDA:1,fold
+FN:834,845,remove_dc
+FNDA:1,remove_dc
+FN:848,861,norm_peak
+FNDA:1,norm_peak
+FN:864,877,norm_rms
+FNDA:1,norm_rms
+FN:880,901,gain
+FNDA:1,gain
+FN:904,928,lin_to_ecdf
+FNDA:1,lin_to_ecdf
+FN:931,957,ecdf_to_lin
+FNDA:1,ecdf_to_lin
+FN:960,987,ecdf
+FNDA:1,ecdf
+FNF:35
+FNH:35
+BRDA:49,0,jump to line 50,1
+BRDA:49,0,jump to line 51,1
+BRDA:51,0,jump to line 52,1
+BRDA:51,0,jump to line 53,1
+BRDA:53,0,jump to line 54,1
+BRDA:53,0,jump to line 55,1
+BRDA:55,0,jump to line 56,1
+BRDA:55,0,jump to line 58,1
+BRDA:99,0,jump to line 100,1
+BRDA:99,0,jump to line 101,1
+BRDA:101,0,jump to line 102,1
+BRDA:101,0,jump to line 103,1
+BRDA:103,0,jump to line 104,1
+BRDA:103,0,jump to line 105,1
+BRDA:105,0,jump to line 106,1
+BRDA:105,0,jump to line 108,1
+BRDA:150,0,jump to line 151,1
+BRDA:150,0,jump to line 152,1
+BRDA:152,0,jump to line 153,1
+BRDA:152,0,jump to line 154,1
+BRDA:154,0,jump to line 155,1
+BRDA:154,0,jump to line 156,1
+BRDA:156,0,jump to line 157,1
+BRDA:156,0,jump to line 159,1
+BRDA:206,0,jump to line 207,1
+BRDA:206,0,jump to line 209,1
+BRDA:213,0,jump to line 214,1
+BRDA:213,0,jump to line 215,1
+BRDA:215,0,jump to line 216,1
+BRDA:215,0,jump to line 222,1
+BRDA:216,0,jump to line 217,1
+BRDA:216,0,jump to line 218,1
+BRDA:218,0,jump to line 219,1
+BRDA:218,0,jump to line 221,1
+BRDA:267,0,jump to line 268,1
+BRDA:267,0,jump to line 270,1
+BRDA:273,0,jump to line 274,1
+BRDA:273,0,jump to line 275,1
+BRDA:275,0,jump to line 276,1
+BRDA:275,0,jump to line 282,1
+BRDA:276,0,jump to line 277,1
+BRDA:276,0,jump to line 278,1
+BRDA:278,0,jump to line 279,1
+BRDA:278,0,jump to line 281,1
+BRDA:317,0,jump to line 318,1
+BRDA:317,0,jump to line 319,1
+BRDA:319,0,jump to line 320,0
+BRDA:319,0,jump to line 321,1
+BRDA:321,0,jump to line 322,1
+BRDA:321,0,jump to line 323,1
+BRDA:323,0,jump to line 324,1
+BRDA:323,0,jump to line 326,1
+BRDA:447,0,jump to line 448,1
+BRDA:447,0,jump to line 450,1
+BRDA:450,0,jump to line 451,1
+BRDA:450,0,jump to line 452,1
+BRDA:452,0,jump to line 453,1
+BRDA:452,0,jump to line 454,1
+BRDA:592,0,jump to line 593,1
+BRDA:592,0,jump to line 595,1
+BRDA:620,0,jump to line 621,1
+BRDA:620,0,jump to line 623,1
+BRDA:828,0,jump to line 829,1
+BRDA:828,0,jump to line 830,1
+BRDA:895,0,jump to line 896,1
+BRDA:895,0,jump to line 898,1
+BRDA:899,0,jump to line 900,1
+BRDA:899,0,jump to line 901,1
+BRDA:923,0,jump to line 924,1
+BRDA:923,0,jump to line 928,1
+BRDA:951,0,jump to line 952,1
+BRDA:951,0,jump to line 956,1
+BRF:72
+BRH:71
+end_of_record

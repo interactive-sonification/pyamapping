@@ -1,16 +1,58 @@
+[project]
+name = "pyamapping"
+description = "A Python package containing audio related functions and mappings"
+authors = [
+    { name = "Thomas Hermann", email = "thermann@techfak.uni-bielefeld.de"},
+    { name = "Dennis Reinsch", email = "dreinsch@techfak.uni-bielefeld.de"}
+]
+maintainers = [
+    {name = "Fabian Hommel", email = "fhommel@techfa.uni-bielefeld.de"}
+]
+readme = "README.rst"
+dynamic = ["version"]
+requires-python = ">=3.9"
+dependencies = [
+    "numpy",
+    "scipy",
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*", "AUTHORS.rst"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python"
+]
+
+[project.urls]
+github = "https://github.com/interactive-sonification/pyamapping"
+
 [build-system]
-# AVOID CHANGING REQUIRES: IT WILL BE UPDATED BY PYSCAFFOLD!
-requires = ["setuptools>=46.1.0", "setuptools_scm[toml]>=5"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.targets.wheel]
+packages = ["pyamapping"]
 
 [tool.setuptools_scm]
 # For smarter version schemes and other configuration options,
 # check out https://github.com/pypa/setuptools_scm
 version_scheme = "no-guess-dev"
 
+[project.optional-dependencies]
+example-notebooks = ["notebook"]
+
+[tool.uv]
+dev-dependencies = ["tox", "pytest", "pytest-cov", "pre-commit", "sphinx"]
+
 [tool.ruff]
 line-length = 88
-lint.select = ["D"]
+lint.select = ["E", "F", "I", "T10"]  # E/F = flake8, I = isort
 
 [tool.ruff.lint.pydocstyle]
 convention = "numpy"
+
+[tool.pytest.ini_options]
+addopts = "--cov=mypackage --cov-report=lcov"
+testpaths = ["tests"]  
