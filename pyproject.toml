@@ -50,9 +50,12 @@ dev-dependencies = ["tox", "pytest", "pytest-cov", "pre-commit", "sphinx"]
 line-length = 88
 lint.select = ["E", "F", "I", "T10"]  # E/F = flake8, I = isort
 
+[tool.ruff.lint.isort]
+known_first_party = "pyamapping"
+
 [tool.ruff.lint.pydocstyle]
 convention = "numpy"
 
 [tool.pytest.ini_options]
-addopts = "--cov=mypackage --cov-report=lcov"
+addopts = "--cov=pyamapping --cov-report=lcov --cov-report=term-missing"
 testpaths = ["tests"]  

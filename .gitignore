@@ -53,5 +53,5 @@ MANIFEST
 .conda*/
 .python-version
 
-# Ignore .env file
+# .env file for Environment Variables
 .env
