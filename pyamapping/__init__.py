@@ -1,3 +1,8 @@
+"""
+Contains various mapping functions used
+in audio computing and sonification.
+"""
+
 import sys
 
 if sys.version_info[:2] >= (3, 8):
