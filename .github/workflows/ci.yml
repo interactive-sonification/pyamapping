@@ -32,9 +32,9 @@ jobs:
     outputs:
       wheel-distribution: ${{ steps.wheel-distribution.outputs.path }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with: {fetch-depth: 0}  # deep clone for hatch-scm
-      - uses: astral-sh/setup-uv@v5
+      - uses: astral-sh/setup-uv@v8
       - name: Run static analysis and format checkers
         run: uv run pre-commit run --all-files --show-diff-on-failure
       - name: Build package distribution files
@@ -67,8 +67,8 @@ jobs:
         - windows-latest
     runs-on: ${{ matrix.platform }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v5
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v8
         with:
           python-version: ${{ matrix.python }}
       - name: Retrieve pre-built distribution files
@@ -103,8 +103,8 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v5
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v8
       - name: Retrieve pre-built distribution files
         uses: actions/download-artifact@v4
         with: {name: python-distribution-files, path: dist/}
