@@ -1,7 +1,6 @@
-import numpy as np
 import pytest
 
-from pyamapping.mappings import midi_to_cps, cps_to_midi
+from pyamapping.mappings import cps_to_midi, midi_to_cps
 
 
 class TestMidiToCps:

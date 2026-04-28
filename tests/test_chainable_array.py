@@ -1,8 +1,9 @@
-import pytest
 import numpy as np
+import pytest
 from numpy.testing import assert_allclose
 
 from pyamapping.chainable_array import ChainableArray, chain
+
 
 class TestChainableArrayCreation:
     """Test ChainableArray instantiation and type."""
@@ -84,7 +85,11 @@ class TestChainableArrayMap:
     def test_raises_type_error_for_scalar_only_function(self):
         a = ChainableArray([1.0, 2.0, 3.0])
         with pytest.raises(TypeError, match="Use .mapvec()"):
-            a.map(lambda x: x + 1 if isinstance(x, float) else (_ for _ in ()).throw(TypeError()))
+            a.map(
+                lambda x: x + 1
+                if isinstance(x, float)
+                else (_ for _ in ()).throw(TypeError())
+            )
 
     def test_chaining(self):
         a = ChainableArray([1.0, 2.0, 3.0])
@@ -97,7 +102,7 @@ class TestChainableArrayMapvec:
 
     def test_applies_scalar_function_elementwise(self):
         a = ChainableArray([1.0, 2.0, 3.0])
-        result = a.mapvec(lambda x: x ** 2)
+        result = a.mapvec(lambda x: x**2)
         assert_allclose(result, [1.0, 4.0, 9.0])
 
     def test_returns_chainable_array(self):

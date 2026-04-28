@@ -1,7 +1,8 @@
-import pytest
 import numpy as np
+import pytest
 
 from pyamapping.mappings import hz_to_mel, mel_to_hz
+
 
 class TestHzToMel:
     """Test Hz to mel conversion for both Slaney and HTK formulas."""
@@ -17,7 +18,9 @@ class TestHzToMel:
 
     def test_known_value_htk(self):
         # 440 Hz -> mel via O'Shaughnessy formula
-        assert hz_to_mel(440, htk=True) == pytest.approx(2595 * np.log10(1 + 440 / 700), rel=1e-6)
+        assert hz_to_mel(440, htk=True) == pytest.approx(
+            2595 * np.log10(1 + 440 / 700), rel=1e-6
+        )
 
     def test_linear_regime_below_1000hz(self):
         # Slaney: linear law applies below 1000 Hz
@@ -49,9 +52,10 @@ class TestMelToHz:
     def test_known_value_slaney(self):
         assert mel_to_hz(6.6) == pytest.approx(440.0, rel=1e-6)
 
-
     def test_known_value_htk(self):
-        assert mel_to_hz(2595 * np.log10(1 + 440 / 700), htk=True) == pytest.approx(440, rel=1e-6)
+        assert mel_to_hz(2595 * np.log10(1 + 440 / 700), htk=True) == pytest.approx(
+            440, rel=1e-6
+        )
 
     def test_linear_regime_below_mel_15(self):
         # Slaney: linear law applies below mel=15
@@ -79,11 +83,15 @@ class TestHzMelRoundtrip:
 
     def test_hz_to_mel_to_hz_htk(self):
         for hz in [100, 440, 1000, 4000, 8000]:
-            assert mel_to_hz(hz_to_mel(hz, htk=True), htk=True) == pytest.approx(hz, rel=1e-9)
+            assert mel_to_hz(hz_to_mel(hz, htk=True), htk=True) == pytest.approx(
+                hz, rel=1e-9
+            )
 
     def test_mel_to_hz_to_mel_htk(self):
         for mel in [100, 500, 1000, 2000]:
-            assert hz_to_mel(mel_to_hz(mel, htk=True), htk=True) == pytest.approx(mel, rel=1e-9)
+            assert hz_to_mel(mel_to_hz(mel, htk=True), htk=True) == pytest.approx(
+                mel, rel=1e-9
+            )
 
     def test_htk_and_slaney_differ(self):
         # The two formulas are different — their results should not be equal

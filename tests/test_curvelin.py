@@ -1,8 +1,9 @@
-import pytest
 import numpy as np
+import pytest
 from numpy.testing import assert_allclose
 
 from pyamapping.mappings import curvelin, lincurve
+
 
 class TestCurvelinEndpoints:
     """Test that x1->y1 and x2->y2 mappings are exact."""
@@ -93,7 +94,9 @@ class TestCurvelinClipping:
         assert curvelin(0.5, 0, 1, 0, 1, curve=0.0, clip="min") == pytest.approx(0.5)
 
     def test_clip_minmax_caps_both_sides(self):
-        assert curvelin(-1.0, 0, 1, 0, 1, curve=0.0, clip="minmax") == pytest.approx(0.0)
+        assert curvelin(-1.0, 0, 1, 0, 1, curve=0.0, clip="minmax") == pytest.approx(
+            0.0
+        )
         assert curvelin(2.0, 0, 1, 0, 1, curve=0.0, clip="minmax") == pytest.approx(1.0)
 
     def test_clip_unknown_string_implies_minmax(self):
@@ -101,7 +104,9 @@ class TestCurvelinClipping:
         assert curvelin(2.0, 0, 1, 0, 1, curve=0.0, clip="both") == pytest.approx(1.0)
 
     def test_clip_minmax_array_input(self):
-        result = curvelin(np.array([-1.0, 0.5, 2.0]), 0, 1, 0, 1, curve=0.0, clip="minmax")
+        result = curvelin(
+            np.array([-1.0, 0.5, 2.0]), 0, 1, 0, 1, curve=0.0, clip="minmax"
+        )
         assert_allclose(result, [0.0, 0.5, 1.0])
 
 
@@ -110,8 +115,12 @@ class TestCurvelinVsLincurve:
 
     def test_curvelin_is_inverse_of_lincurve(self):
         for x in [0.1, 0.3, 0.5, 0.7, 0.9]:
-            assert curvelin(lincurve(x, 0, 1, 0, 1), 0, 1, 0, 1) == pytest.approx(x, rel=1e-6)
+            assert curvelin(lincurve(x, 0, 1, 0, 1), 0, 1, 0, 1) == pytest.approx(
+                x, rel=1e-6
+            )
 
     def test_lincurve_is_inverse_of_curvelin(self):
         for x in [0.1, 0.3, 0.5, 0.7, 0.9]:
-            assert lincurve(curvelin(x, 0, 1, 0, 1), 0, 1, 0, 1) == pytest.approx(x, rel=1e-6)
+            assert lincurve(curvelin(x, 0, 1, 0, 1), 0, 1, 0, 1) == pytest.approx(
+                x, rel=1e-6
+            )

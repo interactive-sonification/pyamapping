@@ -1,8 +1,7 @@
 import numpy as np
-import pytest
 from numpy.testing import assert_allclose
 
-from pyamapping.mappings import gain, db_to_amp
+from pyamapping.mappings import db_to_amp, gain
 
 
 class TestGainAmp:

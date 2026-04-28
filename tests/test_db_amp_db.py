@@ -1,6 +1,6 @@
 import pytest
 
-from pyamapping.mappings import db_to_amp, amp_to_db
+from pyamapping.mappings import amp_to_db, db_to_amp
 
 
 class TestDbToAmp:

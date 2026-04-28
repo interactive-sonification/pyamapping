@@ -114,7 +114,9 @@ class TestLincurveClipping:
         assert result == pytest.approx(0.5)
 
     def test_clip_minmax_caps_both_sides(self):
-        assert lincurve(-1.0, 0, 1, 0, 1, curve=0.0, clip="minmax") == pytest.approx(0.0)
+        assert lincurve(-1.0, 0, 1, 0, 1, curve=0.0, clip="minmax") == pytest.approx(
+            0.0
+        )
         assert lincurve(2.0, 0, 1, 0, 1, curve=0.0, clip="minmax") == pytest.approx(1.0)
 
     def test_clip_unknown_string_implies_minmax(self):

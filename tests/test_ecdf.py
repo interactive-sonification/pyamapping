@@ -2,7 +2,7 @@ import numpy as np
 import pytest
 from numpy.testing import assert_allclose
 
-from pyamapping.mappings import interp, ecdf, ecdf_to_lin, lin_to_ecdf
+from pyamapping.mappings import ecdf, ecdf_to_lin, interp, lin_to_ecdf
 
 
 class TestEcdf:
@@ -89,7 +89,7 @@ class TestLinToEcdf:
 
     def test_below_min_clips_to_zero(self):
         ref = np.array([1.0, 2.0, 3.0])
-        assert lin_to_ecdf(0.0, ref) == pytest.approx(1/3)
+        assert lin_to_ecdf(0.0, ref) == pytest.approx(1 / 3)
 
     def test_above_max_clips_to_one(self):
         ref = np.array([1.0, 2.0, 3.0])
@@ -108,7 +108,6 @@ class TestLinToEcdf:
         x = np.linspace(0, 1, 20)
         result = lin_to_ecdf(x, ref)
         assert np.all(np.diff(result) >= 0)
-
 
 
 class TestEcdfToLin:

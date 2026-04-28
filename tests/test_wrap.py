@@ -1,5 +1,5 @@
-import pytest
 import numpy as np
+import pytest
 from numpy.testing import assert_allclose
 
 from pyamapping.mappings import wrap
@@ -61,7 +61,6 @@ class TestWrapProperties:
         period = 3.0
         x = np.linspace(-5, 5, 50)
         assert_allclose(wrap(x, 0, period), wrap(x + period, 0, period))
-
 
     def test_array_input_returns_ndarray(self):
         assert isinstance(wrap(np.array([0.0, 1.0])), np.ndarray)

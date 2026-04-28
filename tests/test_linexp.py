@@ -1,8 +1,9 @@
-import pytest
 import numpy as np
+import pytest
 from numpy.testing import assert_allclose
 
 from pyamapping.mappings import linexp
+
 
 class TestLinexpEndpoints:
     """Test that x1->y1 and x2->y2 mappings are exact."""

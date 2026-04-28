@@ -1,5 +1,5 @@
-import pytest
 import numpy as np
+import pytest
 from numpy.testing import assert_allclose
 
 from pyamapping.mappings import explin, linexp
@@ -88,9 +88,7 @@ class TestExplinClipping:
         )
 
     def test_clip_minmax_array_input(self):
-        result = explin(
-            np.array([0.0001, 0.01, 2.0]), 0.001, 1.0, 0, 1, clip="minmax"
-        )
+        result = explin(np.array([0.0001, 0.01, 2.0]), 0.001, 1.0, 0, 1, clip="minmax")
         assert_allclose(result, [0.0, explin(0.01, 0.001, 1.0, 0, 1), 1.0])
 
 
@@ -111,4 +109,6 @@ class TestExplinProperties:
     def test_explin_is_inverse_of_linexp(self):
         # explin and linexp should be inverses of each other
         for x in [220.0, 311.0, 440.0]:
-            assert explin(linexp(x, 220, 440, 220, 440), 220, 440, 220, 440) == pytest.approx(x, rel=1e-9)
+            assert explin(
+                linexp(x, 220, 440, 220, 440), 220, 440, 220, 440
+            ) == pytest.approx(x, rel=1e-9)

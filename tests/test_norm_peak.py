@@ -5,7 +5,6 @@ from numpy.testing import assert_allclose
 from pyamapping.mappings import norm_peak
 
 
-
 class TestNormPeakDefaultPeak:
     """Test peak normalization with default peak=1.0."""
 
@@ -42,7 +41,7 @@ class TestNormPeakCustomPeak:
     def test_scaling_is_linear(self):
         x = np.array([1.0, 2.0, 3.0])
         result = norm_peak(x, peak=2.0)
-        assert_allclose(result, [2/3, 4/3, 2.0])
+        assert_allclose(result, [2 / 3, 4 / 3, 2.0])
 
     def test_ratios_between_elements_preserved(self):
         x = np.array([1.0, 2.0, 4.0])

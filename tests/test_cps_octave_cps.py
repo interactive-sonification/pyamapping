@@ -58,4 +58,6 @@ class TestCpsOctaveRoundtrip:
 
     def test_octave_to_cps_to_octave(self):
         for octave in [1.0, 2.75, 3.75, 4.0, 4.75, 5.75, 7.0]:
-            assert cps_to_octave(octave_to_cps(octave)) == pytest.approx(octave, rel=1e-9)
+            assert cps_to_octave(octave_to_cps(octave)) == pytest.approx(
+                octave, rel=1e-9
+            )

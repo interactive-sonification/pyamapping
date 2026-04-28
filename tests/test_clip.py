@@ -4,6 +4,7 @@ from numpy.testing import assert_allclose
 
 from pyamapping.mappings import clip
 
+
 class TestClipScalar:
     """Test clipping of scalar float/int values."""
 

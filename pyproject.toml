@@ -48,10 +48,12 @@ dev-dependencies = ["tox", "pytest", "pytest-cov", "pre-commit", "sphinx"]
 
 [tool.ruff]
 line-length = 88
-lint.select = ["E", "F", "I", "T10"]  # E/F = flake8, I = isort
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "T10"]  # E/F = flake8, I = isort
 
 [tool.ruff.lint.isort]
-known_first_party = "pyamapping"
+known-first-party = ["pyamapping"]
 
 [tool.ruff.lint.pydocstyle]
 convention = "numpy"

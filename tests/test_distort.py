@@ -1,5 +1,5 @@
-import pytest
 import numpy as np
+import pytest
 from numpy.testing import assert_allclose
 
 from pyamapping.mappings import distort
@@ -42,7 +42,7 @@ class TestDistortArray:
     def test_known_values(self):
         assert_allclose(
             distort([0, 1, 2, 3], threshold=1),
-            [0.0, 0.5, 2/3, 0.75],
+            [0.0, 0.5, 2 / 3, 0.75],
             rtol=1e-6,
         )
 
@@ -59,7 +59,7 @@ class TestDistortArray:
     def test_custom_threshold_array(self):
         assert_allclose(
             distort(np.array([0, 1, 2]), threshold=2.0),
-            [0.0, 1/3, 0.5],
+            [0.0, 1 / 3, 0.5],
             rtol=1e-6,
         )
 
@@ -79,4 +79,4 @@ class TestDistortProperties:
 
     def test_monotonically_increasing(self):
         x = np.linspace(-10, 10, 100)
-        result = distort(x)
+        _ = distort(x)

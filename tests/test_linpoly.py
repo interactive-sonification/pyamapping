@@ -49,7 +49,9 @@ class TestLinpolyCurve:
         # curve=-1 -> order = 1/(1-(-1)) = 0.5 (square root)
         order = 1 / (1 - (-1))
         expected = 0 + 1 * (1 + (0.5 / 1.0) ** order) / 2
-        assert linpoly(0.5, xmax=1.0, y1=0.0, y2=1.0, curve=-1) == pytest.approx(expected)
+        assert linpoly(0.5, xmax=1.0, y1=0.0, y2=1.0, curve=-1) == pytest.approx(
+            expected
+        )
 
 
 class TestLinpolyProperties:
@@ -58,7 +60,9 @@ class TestLinpolyProperties:
     def test_odd_symmetry_around_midpoint(self):
         # linpoly(-x) and linpoly(x) should be symmetric around the output midpoint
         for x in [0.25, 0.5, 0.75, 1.0]:
-            assert linpoly(x, y1=0.0, y2=1.0) + linpoly(-x, y1=0.0, y2=1.0) == pytest.approx(1.0)
+            assert linpoly(x, y1=0.0, y2=1.0) + linpoly(
+                -x, y1=0.0, y2=1.0
+            ) == pytest.approx(1.0)
 
     def test_monotonically_increasing(self):
         x = np.linspace(-1, 1, 200)
@@ -81,12 +85,18 @@ class TestLinpolyClipping:
         assert linpoly(-2.0, xmax=1.0, y1=0.0, y2=1.0, clip="min") == pytest.approx(0.0)
 
     def test_clip_minmax_caps_both_sides(self):
-        assert linpoly(2.0, xmax=1.0, y1=0.0, y2=1.0, clip="minmax") == pytest.approx(1.0)
-        assert linpoly(-2.0, xmax=1.0, y1=0.0, y2=1.0, clip="minmax") == pytest.approx(0.0)
+        assert linpoly(2.0, xmax=1.0, y1=0.0, y2=1.0, clip="minmax") == pytest.approx(
+            1.0
+        )
+        assert linpoly(-2.0, xmax=1.0, y1=0.0, y2=1.0, clip="minmax") == pytest.approx(
+            0.0
+        )
 
     def test_clip_unknown_string_implies_minmax(self):
         assert linpoly(2.0, xmax=1.0, y1=0.0, y2=1.0, clip="both") == pytest.approx(1.0)
-        assert linpoly(-2.0, xmax=1.0, y1=0.0, y2=1.0, clip="both") == pytest.approx(0.0)
+        assert linpoly(-2.0, xmax=1.0, y1=0.0, y2=1.0, clip="both") == pytest.approx(
+            0.0
+        )
 
     def test_clip_does_not_affect_values_within_range(self):
         assert linpoly(0.5, xmax=1.0, y1=0.0, y2=1.0, clip="minmax") == pytest.approx(

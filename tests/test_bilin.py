@@ -2,8 +2,8 @@ import numpy as np
 import pytest
 from numpy.testing import assert_allclose
 
-from pyamapping.mappings import interp_spline, bilin
-from pyamapping.chainable_array import ChainableArray, chain
+from pyamapping.chainable_array import ChainableArray
+from pyamapping.mappings import bilin, interp_spline
 
 
 class TestInterpSplineLinear:
@@ -46,7 +46,7 @@ class TestInterpSplineReturnType:
     def test_chainable_array_input_returns_plain_ndarray(self):
         x = ChainableArray(np.array([0.0, 0.5, 1.0]))
         result = interp_spline(x, [-1, 0, 1], [-1, 0, 1])
-        assert type(result) == np.ndarray
+        assert isinstance(result, np.ndarray)
 
     def test_plain_array_input_returns_chainable_array(self):
         x = np.array([0.0, 0.5, 1.0])
@@ -87,6 +87,10 @@ class TestBilin:
     def test_two_slopes_differ(self):
         # slope left of xcenter: (-20-0)/(20-60) = 0.5
         # slope right of xcenter: (60-0)/(80-60) = 3.0
-        slope_left = (bilin(40, 60, 20, 80, 0, -20, 60) - bilin(20, 60, 20, 80, 0, -20, 60)) / 20
-        slope_right = (bilin(80, 60, 20, 80, 0, -20, 60) - bilin(60, 60, 20, 80, 0, -20, 60)) / 20
+        slope_left = (
+            bilin(40, 60, 20, 80, 0, -20, 60) - bilin(20, 60, 20, 80, 0, -20, 60)
+        ) / 20
+        slope_right = (
+            bilin(80, 60, 20, 80, 0, -20, 60) - bilin(60, 60, 20, 80, 0, -20, 60)
+        ) / 20
         assert slope_left != pytest.approx(slope_right)

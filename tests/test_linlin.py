@@ -4,6 +4,7 @@ from numpy.testing import assert_allclose
 
 from pyamapping.mappings import linlin
 
+
 class TestLinlinEndpoints:
     """Test that x1->y1 and x2->y2 mappings are exact."""
 

@@ -1,6 +1,4 @@
-import numpy as np
 import pytest
-from numpy.testing import assert_allclose
 
 from pyamapping.mappings import midi_to_ratio, ratio_to_midi
 
@@ -24,7 +22,7 @@ class TestMidiToRatio:
         assert midi_to_ratio(-12) == pytest.approx(0.5)
 
     def test_fractional_interval(self):
-        assert midi_to_ratio(6.0) == pytest.approx(2 ** 0.5, rel=1e-9)
+        assert midi_to_ratio(6.0) == pytest.approx(2**0.5, rel=1e-9)
 
 
 class TestRatioToMidi:

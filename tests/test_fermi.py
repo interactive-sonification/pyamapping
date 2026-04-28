@@ -1,8 +1,9 @@
-import pytest
 import numpy as np
+import pytest
 from numpy.testing import assert_allclose
 
 from pyamapping.mappings import fermi, lcurve
+
 
 class TestFermiDefaultParams:
     """Test fermi function with default parameters (tau=1, mu=0)."""
