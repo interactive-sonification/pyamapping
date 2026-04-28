@@ -1,6 +1,7 @@
 [project]
 name = "pyamapping"
 description = "A Python package containing audio related functions and mappings"
+version = "0.1.0"
 authors = [
     { name = "Thomas Hermann", email = "thermann@techfak.uni-bielefeld.de"},
     { name = "Dennis Reinsch", email = "dreinsch@techfak.uni-bielefeld.de"}
@@ -9,7 +10,6 @@ maintainers = [
     {name = "Fabian Hommel", email = "fhommel@techfa.uni-bielefeld.de"}
 ]
 readme = "README.rst"
-dynamic = ["version"]
 requires-python = ">=3.9"
 dependencies = [
     "numpy",
@@ -26,19 +26,11 @@ classifiers = [
 github = "https://github.com/interactive-sonification/pyamapping"
 
 [build-system]
-requires = ["hatchling", "hatch-vcs"]
+requires = ["hatchling"]
 build-backend = "hatchling.build"
-
-[tool.hatch.version]
-source = "vcs"
 
 [tool.hatch.build.targets.wheel]
 packages = ["pyamapping"]
-
-[tool.setuptools_scm]
-# For smarter version schemes and other configuration options,
-# check out https://github.com/pypa/setuptools_scm
-version_scheme = "no-guess-dev"
 
 [project.optional-dependencies]
 example-notebooks = ["notebook"]
@@ -51,6 +43,7 @@ line-length = 88
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "T10"]  # E/F = flake8, I = isort
+ignore = ["E702"]
 
 [tool.ruff.lint.isort]
 known-first-party = ["pyamapping"]
