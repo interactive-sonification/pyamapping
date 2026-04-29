@@ -45,23 +45,65 @@ pyamapping
 Making Changes & Contributing
 =============================
 
-This project uses `pre-commit`_, please make sure to install it before making any
-changes::
+To setup your development environment, you need to have `uv <https://docs.astral.sh/uv/>`_ installed.
+First, clone the repository and then change into the root directory:
 
-    pip install pre-commit
+.. code-block:: bash
+
     cd pyamapping
-    pre-commit install
 
-It is a good idea to update the hooks to the latest version::
+Afterwards, sync your environment:
 
-    pre-commit autoupdate
+.. code-block:: bash
 
-Don't forget to tell your contributors to also install and use pre-commit.
+    uv sync
 
-.. _pre-commit: https://pre-commit.com/
+This will install all required dependencies (dev dependencies included).
+Also, please install the pre-commit hooks:
 
-Note
-====
+.. code-block:: bash
 
-This project has been set up using PyScaffold 4.5. For details and usage
-information on PyScaffold see https://pyscaffold.org/.
+    uv run pre-commit install
+
+Experimentation in Scratchpad / Jupyter
+----------------------------------------
+
+uv automatically installs the ``pyamapping`` package to the ``.venv`` in editable mode.
+During development, any changes to the ``pyamapping`` source will be reflected automatically.
+To write playground / exploratory code, just make sure to run your REPL environment with ``uv run``, e.g.:
+
+.. code-block:: bash
+
+    uv run python
+
+or
+
+.. code-block:: bash
+
+    uv run jupyter notebook
+
+Then, you should be able to:
+
+.. code-block:: python
+
+    import pyamapping as pam
+
+And get the current state of the source code.
+
+Running Tests
+-------------
+
+Tests can be run via:
+
+.. code-block:: bash
+
+    uv run tox -e tests
+
+Building Documentation
+----------------------
+
+Documentation can be built via:
+
+.. code-block:: bash
+
+    uv run tox -e docs
