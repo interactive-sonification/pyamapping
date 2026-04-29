@@ -1,7 +1,7 @@
 [project]
 name = "pyamapping"
 description = "A Python package containing audio related functions and mappings"
-version = "0.1.0"
+version = "1.0.0"
 authors = [
     { name = "Thomas Hermann", email = "thermann@techfak.uni-bielefeld.de"},
     { name = "Dennis Reinsch", email = "dreinsch@techfak.uni-bielefeld.de"}
